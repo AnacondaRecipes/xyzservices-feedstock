@@ -37,7 +37,6 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  license_url: https://github.com/geopandas/xyzservices/blob/main/LICENSE
   summary: Source of XYZ tiles providers
   description: |
     xyzservices is a lightweight library providing a repository of available XYZ
