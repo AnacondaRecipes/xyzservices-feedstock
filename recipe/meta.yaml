@@ -10,9 +10,9 @@ source:
   sha256: 55651961708b9a14849978b339df76008c886df7a8326308a5549bae5516260c
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py<37]
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps
 
 requirements:
   host:
@@ -37,7 +37,6 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  license_url: https://github.com/geopandas/xyzservices/blob/main/LICENSE
   summary: Source of XYZ tiles providers
   description: |
     xyzservices is a lightweight library providing a repository of available XYZ
