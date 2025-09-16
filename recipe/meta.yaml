@@ -1,18 +1,18 @@
 {% set name = "xyzservices" %}
-{% set version = "2022.9.0" %}
+{% set version = "2025.4.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 55651961708b9a14849978b339df76008c886df7a8326308a5549bae5516260c
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 6fe764713648fac53450fbc61a3c366cb6ae5335a1b2ae0c3796b495de3709d8
 
 build:
-  number: 1
+  number: 0
   # Trigger 1
-  skip: True  # [py<37]
+  skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv --no-deps
 
 requirements:
@@ -21,6 +21,7 @@ requirements:
     - pip
     - setuptools
     - wheel
+    - setuptools-scm
   run:
     - python
 
