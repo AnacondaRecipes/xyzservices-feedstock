@@ -18,9 +18,10 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
+    - setuptools >=77
     - wheel
-    - setuptools-scm
+    - setuptools-scm >=6.2
+    - toml
   run:
     - python
 
