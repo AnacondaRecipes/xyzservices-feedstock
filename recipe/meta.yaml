@@ -35,6 +35,7 @@ test:
     - pytest
   commands:
     - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
     # Skip test_providers.py because of "ModuleNotFoundError: No module named 'mercantile'"
     - pytest -v xyzservices/tests --ignore=xyzservices/tests/test_providers.py
 
