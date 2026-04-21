@@ -1,5 +1,5 @@
 {% set name = "xyzservices" %}
-{% set version = "2025.4.0" %}
+{% set version = "2026.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6fe764713648fac53450fbc61a3c366cb6ae5335a1b2ae0c3796b495de3709d8
+  sha256: d226866a5d8e9fef337034d8da37a8298f0a1d9d1489b4018e69579eb321fea4
 
 build:
   number: 0
@@ -18,9 +18,10 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
+    - setuptools >=77
     - wheel
-    - setuptools-scm
+    - setuptools-scm >=6.2
+    - toml
   run:
     - python
 
@@ -35,6 +36,7 @@ test:
     - pytest
   commands:
     - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
     # Skip test_providers.py because of "ModuleNotFoundError: No module named 'mercantile'"
     - pytest -v xyzservices/tests --ignore=xyzservices/tests/test_providers.py
 
